@@ -1,3 +1,6 @@
+// Import CSS
+import './style.css';
+
 // Modern Portfolio JavaScript
 
 // Smooth scrolling for navigation links
@@ -87,12 +90,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Download resume functionality
-document.getElementById('downloadResume').addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // You can replace this with actual resume download logic
-    const resumeContent = generateResumeContent();
-    downloadResume(resumeContent);
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadBtn = document.getElementById('downloadResume');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // You can replace this with actual resume download logic
+            const resumeContent = generateResumeContent();
+            downloadResume(resumeContent);
+        });
+    }
 });
 
 function generateResumeContent() {

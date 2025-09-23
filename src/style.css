@@ -1,0 +1,501 @@
+/* Modern Portfolio Styles - Apple Dark Mode Inspired */
+:root {
+    --primary-color: #007aff;
+    --secondary-color: #8e8e93;
+    --accent-color: #30d158;
+    --background-color: #000000;
+    --surface-color: #1c1c1e;
+    --elevated-surface: #2c2c2e;
+    --text-color: #ffffff;
+    --text-secondary: #8e8e93;
+    --border-color: #38383a;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --gradient-bg: linear-gradient(135deg, #1d1d1f 0%, #000000 100%);
+    --card-bg: rgba(28, 28, 30, 0.8);
+    --glass-bg: rgba(28, 28, 30, 0.7);
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+.navbar {
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+    background-color: var(--glass-bg) !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: var(--text-color) !important;
+    font-weight: 600;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    color: var(--text-color) !important;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    background: var(--gradient-bg);
+    color: var(--text-color);
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.hero-section .lead {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    color: var(--text-secondary);
+}
+
+/* Cards */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 16px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    background-color: var(--elevated-surface);
+}
+
+.card-title {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--text-secondary);
+}
+
+/* Timeline */
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    z-index: 2;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -14px;
+    top: 32px;
+    width: 2px;
+    height: calc(100% - 12px);
+    background: var(--border-color);
+    z-index: 1;
+}
+
+.timeline-item:last-child::after {
+    display: none;
+}
+
+/* Badges */
+.badge {
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background-color: var(--elevated-surface);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.badge-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.badge-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background: #0056d2;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+    color: white;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Contact Section */
+.contact-item {
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    background-color: var(--elevated-surface);
+}
+
+.contact-item i {
+    color: var(--primary-color);
+}
+
+.contact-item a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--primary-color) !important;
+}
+
+.contact-item h5 {
+    color: var(--text-color);
+}
+
+.contact-item p {
+    color: var(--text-secondary);
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        margin: 5px;
+    }
+    
+    .timeline-item::before,
+    .timeline-item::after {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding-top: 80px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #ffffff;
+        --background-color: #000000;
+    }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0056d2;
+}
+
+/* Section spacing */
+section {
+    padding: 80px 0;
+    background-color: var(--background-color);
+}
+
+section:nth-child(even) {
+    background-color: var(--surface-color);
+}
+
+/* Section headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+}
+
+h2.display-5 {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.lead {
+    color: var(--text-secondary);
+}
+
+/* Image styling */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.profile-img {
+    border: 3px solid var(--border-color);
+}
+
+/* Text utilities */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+/* Form styling */
+.form-control {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    background-color: var(--elevated-surface);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 255, 0.25);
+}
+
+.form-control::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Loading animation */
+.loading {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Apple-inspired glass morphism effects */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+}
+
+/* Spotlight effect for hero section */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 122, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Apple-style focus states */
+button:focus,
+.btn:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Professional typography */
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+/* Status indicators */
+.status-online {
+    color: var(--accent-color);
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color) !important;
+}
+
+footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color) !important;
+}
