@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with Vite showcasing my experience 
 
 ## 🚀 Live Demo
 
-Visit the live website: [https://ranjan-khadka.vercel.app/](url)
+Visit the live website: https://ranjan-khadka.vercel.app/
 ## 📋 Features
 
 - **Responsive Design**: Optimized for all devices (mobile, tablet, desktop)
