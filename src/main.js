@@ -168,16 +168,35 @@ Problem-Solving | Leadership | Teamwork | Communication | Time Management | Adap
 }
 
 function downloadResume(content) {
-    const element = document.createElement('a');
-    const file = new Blob([content], { type: 'text/plain' });
-    element.href = URL.createObjectURL(file);
-    element.download = 'Ranjan_Khadka_Resume.txt';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    // Using jsPDF library to create PDF
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
     
-    // Show success message
-    showNotification('Resume downloaded successfully!', 'success');
+    script.onload = function() {
+        const element = document.createElement('div');
+        element.textContent = content;
+        element.style.padding = '20px';
+        element.style.fontFamily = 'Arial, sans-serif';
+        element.style.fontSize = '11px';
+        element.style.lineHeight = '1.6';
+        element.style.whiteSpace = 'pre-wrap';
+        element.style.wordWrap = 'break-word';
+        
+        const opt = {
+            margin: 10,
+            filename: 'Ranjan_Khadka_Resume.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+        
+        html2pdf().set(opt).from(element).save();
+        
+        // Show success message
+        showNotification('Resume downloaded successfully!', 'success');
+    };
+    
+    document.head.appendChild(script);
 }
 
 // Notification system
