@@ -378,6 +378,14 @@ body {
     .timeline-item::after {
         display: none;
     }
+
+    .project-screenshot-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-screenshot-mobile {
+        display: none;
+    }
     
     /* Contact section responsive fixes */
     .contact-item {
@@ -520,10 +528,37 @@ img {
 /* Projects section specific styling */
 #projects .card {
     background-color: var(--surface-color) !important;
+    overflow: hidden;
 }
 
 #projects .card-body {
     background-color: transparent !important;
+}
+
+.project-screenshot-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(120px, 220px);
+    gap: 1px;
+    background-color: var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-screenshot {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+    display: block;
+}
+
+.project-screenshot-mobile {
+    aspect-ratio: auto;
+    height: 100%;
+}
+
+.project-feature-card .btn-sm {
+    padding: 8px 14px;
 }
 
 /* Skills section styling */
