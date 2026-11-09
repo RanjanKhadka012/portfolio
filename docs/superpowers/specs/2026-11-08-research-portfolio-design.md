@@ -1,6 +1,6 @@
 # Research-first portfolio redesign
 
-Status: proposed design for user review. Style A selected; final design approval pending.
+Status: approved by the user on 2026-11-08. Style A and the six-class mockup are approved for the local website build.
 
 ## Intent
 

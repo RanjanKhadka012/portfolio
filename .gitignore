@@ -37,3 +37,7 @@ logs
 # Temporary files
 *.tmp
 *.temp
+
+# Local design companion
+.superpowers/
+.worktrees/
