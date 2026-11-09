@@ -51,7 +51,7 @@ function configureReveals() {
         entry.target.dataset.seen = 'true';
         revealObserver.unobserve(entry.target);
       });
-    }, { threshold: 0.04, rootMargin: '0px 0px 20px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
 
     revealTargets.forEach(element => {
       const bounds = element.getBoundingClientRect();
@@ -71,7 +71,11 @@ function configureReveals() {
 configureReveals();
 
 const progress = document.querySelector('#reading-progress');
-const researchScene = document.querySelector('[data-parallax]');
+const researchScenes = [...document.querySelectorAll('[data-parallax]')].map(element => ({
+  element,
+  // Measure a stable parent, rather than feeding the transformed bounds back in.
+  container: element.closest('figure') || element,
+}));
 const wideScreen = window.matchMedia('(min-width: 900px)');
 let pendingFrame = false;
 
@@ -80,16 +84,20 @@ function updateScrollEffects() {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const fraction = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
   if (progress) progress.style.transform = `scaleX(${fraction})`;
-  if (!researchScene) return;
-  if (motionPreference.matches || !wideScreen.matches) {
-    researchScene.style.removeProperty('transform');
-    return;
-  }
-  const bounds = researchScene.getBoundingClientRect();
-  if (bounds.bottom < 0 || bounds.top > window.innerHeight) return;
-  const travel = Math.min(1, Math.max(0, (window.innerHeight - bounds.top) / (window.innerHeight + bounds.height)));
-  // Move the complete scene so no object class is cropped away.
-  researchScene.style.transform = `translateY(${(travel - 0.5) * -12}px)`;
+  researchScenes.forEach(({ element, container }) => {
+    if (motionPreference.matches) {
+      element.style.removeProperty('transform');
+      return;
+    }
+    const bounds = container.getBoundingClientRect();
+    if (bounds.bottom < 0 || bounds.top > window.innerHeight) return;
+    const distance = window.innerHeight * 0.85;
+    const travel = Math.min(1, Math.max(0, (distance - bounds.top) / distance));
+    const scale = wideScreen.matches ? 0.94 + travel * 0.06 : 0.98 + travel * 0.02;
+    const offset = (1 - travel) * (wideScreen.matches ? 38 : 18);
+    // Expand the complete scene into place; never zoom past its full composition.
+    element.style.transform = `translateY(${-offset}px) scale(${scale})`;
+  });
 }
 
 function requestScrollEffects() {
