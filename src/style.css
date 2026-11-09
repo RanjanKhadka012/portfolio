@@ -568,8 +568,14 @@ a:focus-visible,button:focus-visible {
   height: 100%;
   box-shadow: 0 10px 40px #0006;
 }
+.project-image.team-shot {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
 .project-image.team-shot img {
-  object-position: center 37%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 .project-content {
   padding: 28px 29px 32px;
