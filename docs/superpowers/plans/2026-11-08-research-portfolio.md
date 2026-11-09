@@ -1,6 +1,6 @@
 # Research Portfolio Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Deliver the approved cinematic, research-first portfolio as a working local Vite website before any GitHub push.
 
@@ -47,9 +47,9 @@
 
 **Interfaces:** Produces image names low-light-six-classes.webp, aerial-parking-concept.webp, portrait.webp, alignt-team.webp, umc-green.webp, eleven-bunkers.webp under public/images/. All production references use ./images/<name>. CV path is ./Ranjan_Khadka_Academic_CV.pdf.
 
-- [ ] Create an ignored isolated worktree from the approved design commit and run npm ci plus the baseline npm run build.
-- [ ] Copy the supplied CV and convert selected images to WebP without changing scene composition or personal identity. Keep generated-image originals in the brainstorm folder.
-- [ ] Inspect dimensions and verify output files exist and decode. Record source links and generation prompt provenance.
+- [x] Create an ignored isolated worktree from the approved design commit and run npm ci plus the baseline npm run build.
+- [x] Copy the supplied CV and convert selected images to WebP without changing scene composition or personal identity. Keep generated-image originals in the brainstorm folder.
+- [x] Inspect dimensions and verify output files exist and decode. Record source links and generation prompt provenance.
 
 ### Task 2: Build the complete research-first page
 
@@ -57,11 +57,11 @@
 
 **Interfaces:** Produces #top, #research, #parking, #work, #about, #experience, #recognition, #contact anchors. Menu hooks: #menu-toggle, #site-links; optional motion hooks: [data-reveal], [data-parallax], #reading-progress. All important content is initially visible.
 
-- [ ] Adapt the approved mockup into semantic HTML with correct metadata and local assets, remove all design-review controls and companion URLs.
-- [ ] Expand research with clear question/contribution/evidence, exact status and supervision, optional details for limitations, and the six-class legend.
-- [ ] Include all four selected software projects with exact contributions; add education, experience, teaching, honors, leadership, service, and contact from the CV.
-- [ ] Move and refine approved CSS into src/style.css. Provide keyboard focus states, a no-JavaScript mobile navigation fallback, responsive uncropped research scenes, and prefers-reduced-motion handling.
-- [ ] Run static checks for duplicate IDs, fragment destinations, local asset/CV references, alt text, six classes, and absence of prototype controls.
+- [x] Adapt the approved mockup into semantic HTML with correct metadata and local assets, remove all design-review controls and companion URLs.
+- [x] Expand research with clear question/contribution/evidence, exact status and supervision, optional details for limitations, and the six-class legend.
+- [x] Include all four selected software projects with exact contributions; add education, experience, teaching, honors, leadership, service, and contact from the CV.
+- [x] Move and refine approved CSS into src/style.css. Provide keyboard focus states, a no-JavaScript mobile navigation fallback, responsive uncropped research scenes, and prefers-reduced-motion handling.
+- [x] Run static checks for duplicate IDs, fragment destinations, local asset/CV references, alt text, six classes, and absence of prototype controls.
 
 ### Task 3: Add progressive motion and navigation
 
@@ -69,10 +69,10 @@
 
 **Interfaces:** Consumes Task 2 hooks. Menu button controls aria-expanded and site-links. Motion runs only when appropriate APIs exist and reduced motion is not requested.
 
-- [ ] Add accessible inline mobile menu behavior: toggle, close on navigation or Escape, and safe return of focus for Escape.
-- [ ] Add restrained intersection reveals with a short distance and fail-open behavior; respect preference changes and keep already-seen content visible.
-- [ ] Add lightweight requestAnimationFrame scroll progress and a subtle desktop research-image transform; no scroll hijacking, no long pinned section, no artificial loading screen.
-- [ ] Check JavaScript syntax and production build. No new automated tests for reversible presentation changes or tests that duplicate markup; verify meaningful static integrity and build output instead.
+- [x] Add accessible inline mobile menu behavior: toggle, close on navigation or Escape, and safe return of focus for Escape.
+- [x] Add restrained intersection reveals with a short distance and fail-open behavior; respect preference changes and keep already-seen content visible.
+- [x] Add lightweight requestAnimationFrame scroll progress and a subtle desktop research-image transform; no scroll hijacking, no long pinned section, no artificial loading screen.
+- [x] Check JavaScript syntax and production build. No new automated tests for reversible presentation changes or tests that duplicate markup; verify meaningful static integrity and build output instead.
 
 ### Task 4: Review, verify, and hand off localhost
 
@@ -80,13 +80,22 @@
 
 **Interfaces:** Finished static build in dist/ and Vite local URL at port 3000 or its actual available port.
 
-- [ ] Update README with npm ci, npm run dev, npm run build, source credits, and verification limits.
-- [ ] Run npm run build, source/build asset and fragment checks, node --check src/main.js, and git diff --check.
-- [ ] Request one fresh-context whole-change review against the approved design and resolve material findings.
-- [ ] Commit local changes, integrate the completed branch into the user's local checkout without pushing, and verify the merged build.
-- [ ] Run a retained local Vite preview with automatic browser opening disabled. Check HTTP success for the page, images, and CV, and give the user the local URL.
-- [ ] Report the known browser verification limit; do not attempt to bypass the Windows URL-policy restriction.
+- [x] Update README with npm ci, npm run dev, npm run build, source credits, and verification limits.
+- [x] Run npm run build, source/build asset and fragment checks, node --check src/main.js, and git diff --check.
+- [x] Request one fresh-context whole-change review against the approved design and resolve material findings.
+- [x] Commit local changes, integrate the completed branch into the user's local checkout without pushing, and verify the merged build.
+- [x] Run a retained local Vite preview with automatic browser opening disabled. Check HTTP success for the page, images, and CV, and give the user the local URL.
+- [x] Report the known browser verification limit; do not attempt to bypass the Windows URL-policy restriction.
 
 ## Execution Decisions
 
 The user approved the full local build. Use ordinary agent execution without another implementation-method approval. Independent asset preparation can run in a bounded subagent; the main page and interaction implementation stays with the coordinator. Worktree setup, local commits, and local integration are reversible implementation steps; GitHub publication remains pending local review.
+
+
+## Completion Record
+
+Implemented and integrated into the local main checkout. No GitHub push or deployment was performed. The retained Vite preview is http://127.0.0.1:3000/.
+
+Validation: Vite 6.4.5 production build passed; JavaScript syntax passed; npm audit reports zero vulnerabilities; source and build passed asset/fragment integrity checks; six images decode with accurate dimensions; the CV matches the supplied bytes; HTTP delivery checks passed for the page and eleven local resources.
+
+Fresh whole-change review found one material issue: mobile cover cropping of the team photograph. The image now keeps its natural aspect ratio and complete group context. No minor findings were deferred. Browser-rendered layout, actual keyboard behavior, and assistive-technology output remain for visual review because Windows browser automation was restricted.
