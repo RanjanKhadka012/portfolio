@@ -1,6 +1,6 @@
 # Ranjan Khadka — Research Portfolio
 
-A research-first portfolio for graduate schools and future employers. The cinematic dark design uses original research illustrations, large system typography, and restrained motion inspired by the supplied Apple reference.
+A portfolio for graduate schools and future employers, opening with a portrait and brief introduction before the research. The cinematic dark design uses original research illustrations, large system typography, and restrained motion inspired by the supplied Apple reference.
 
 ## Run locally
 
@@ -41,7 +41,7 @@ Generated visuals are labeled as research illustrations; they are not experiment
 
 ## Accessibility and motion
 
-The page uses semantic landmarks, a skip link, visible keyboard focus, descriptive image text, native expandable research notes, and a mobile menu with Escape handling. Content and navigation remain available without JavaScript. Reduced-motion preference disables reveals and parallax; normal scrolling is never intercepted.
+The page uses semantic landmarks, a skip link, visible keyboard focus, descriptive image text, native expandable research notes, and a mobile menu with Escape handling. Content and navigation remain available without JavaScript. Device reduced-motion preference is respected by default. A visitor can explicitly choose Play animations or Pause animations for this site, and Replay intro restarts the entrance. The site preference is stored locally when storage is available; no device setting is changed. Normal scrolling is never intercepted.
 
 ## Verification and publication
 

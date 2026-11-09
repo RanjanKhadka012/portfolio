@@ -40,6 +40,10 @@ Education: B.S. Software Engineering, expected May 2027, University of Minnesota
 
 ARIA is senior capstone design in progress, including planned backend and LLM infrastructure; describe as planning/design, not a completed deployed assistant. Preserve the CV's specific backend/integration contributions for UMC-Green, Alignt, and 11Bunkers.
 
+## Approved refinement - 2026-11-09
+
+The user approved placing their portrait, name, and a short introduction before research. Research remains the first substantive content section, with the full academic background below. After confirming Windows animation effects were disabled, add a site-only Play/Pause animations control and Replay intro. Follow the device preference by default and allow explicit per-site opt-in without changing OS settings.
+
 ## Page structure
 
 1. Slim persistent navigation: name, Research, Selected Work, About, and Academic CV. Ensure the condensed mobile version remains usable by keyboard and touch.

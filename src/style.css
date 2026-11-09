@@ -1175,10 +1175,10 @@ a:focus-visible,button:focus-visible {
   }
 }
 @media (prefers-reduced-motion:reduce) {
-  html {
+  html:not([data-motion="full"]) {
     scroll-behavior: auto;
   }
-  *,*:before,*:after {
+  html:not([data-motion="full"]) *,html:not([data-motion="full"]) *:before,html:not([data-motion="full"]) *:after {
     transition: none !important;
     animation: none !important;
   }
@@ -1470,8 +1470,7 @@ summary:focus-visible {
 [data-reveal] {
   transition: opacity 1s ease,transform 1s cubic-bezier(.16,1,.3,1);
 }
-@media (prefers-reduced-motion:no-preference) {
-  /* Entrances run in CSS, including when JavaScript is unavailable. */
+  /* The resolved site preference gates motion; the unenhanced page stays readable. */
   @keyframes hero-enter {
     from {
       opacity: 0;
@@ -1492,37 +1491,36 @@ summary:focus-visible {
       transform: translateY(0) scale(1);
     }
   }
-  .hero .eyebrow {
+  html[data-motion="full"] .hero .eyebrow {
     animation: hero-enter .85s cubic-bezier(.16,1,.3,1) .05s both;
   }
-  .hero h1 {
+  html[data-motion="full"] .hero h1 {
     animation: hero-enter 1.1s cubic-bezier(.16,1,.3,1) .15s both;
   }
-  .hero-name {
+  html[data-motion="full"] .hero-name {
     animation: hero-enter 1s cubic-bezier(.16,1,.3,1) .3s both;
   }
-  .hero-deck {
+  html[data-motion="full"] .hero-deck {
     animation: hero-enter 1s cubic-bezier(.16,1,.3,1) .42s both;
   }
-  .hero > .actions {
+  html[data-motion="full"] .hero .actions {
     animation: hero-enter 1s cubic-bezier(.16,1,.3,1) .54s both;
   }
-  .hero-scene {
+  html[data-motion="full"] .intro-portrait {
     animation: scene-enter 1.35s cubic-bezier(.16,1,.3,1) .4s both;
   }
-  .will-reveal {
+  html[data-motion="full"] .will-reveal {
     opacity: 0;
     transform: translateY(44px);
   }
-  [data-reveal="slow"] {
+  html[data-motion="full"] [data-reveal="slow"] {
     transition-duration: 1.25s;
   }
-  .chapter-head > [data-reveal]:nth-child(2),
-  .project-grid > [data-reveal]:nth-child(2),
-  .recognition-grid > [data-reveal]:nth-child(2) {
+  html[data-motion="full"] .chapter-head > [data-reveal]:nth-child(2),
+  html[data-motion="full"] .project-grid > [data-reveal]:nth-child(2),
+  html[data-motion="full"] .recognition-grid > [data-reveal]:nth-child(2) {
     transition-delay: .12s;
   }
-}
 @media (max-width:1000px) {
   .recognition-grid {
     gap: 40px;
@@ -1685,20 +1683,225 @@ summary:focus-visible {
   }
 }
 @media (prefers-reduced-motion:reduce) {
-  [data-reveal],.will-reveal {
+  html:not([data-motion="full"]) [data-reveal],html:not([data-motion="full"]) .will-reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
-  [data-parallax] {
+  html:not([data-motion="full"]) [data-parallax] {
     transform: none !important;
   }
 }
 @media print {
+  *,*:before,*:after {
+    animation: none !important;
+    transition: none !important;
+  }
   [data-reveal],.will-reveal,[data-parallax],.hero-scene {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* A visitor can opt into motion for this site without changing their device. */
+[hidden] {
+  display: none !important;
+}
+.motion-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin: 24px auto 0;
+  padding-inline: 20px;
+}
+.motion-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #796052;
+  border-radius: 24px;
+  background: #211a1d;
+  color: #efd9c9;
+  padding: 10px 16px;
+  min-height: 40px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.motion-button:hover {
+  border-color: #cda084;
+  background: #33252a;
+}
+.motion-replay {
+  border-color: #ffffff30;
+  background: transparent;
+  color: #c7bbc7;
+}
+.motion-status {
+  width: 100%;
+  color: #aaa0ad;
+  font-size: 10px;
+  line-height: 1.6;
+}
+html[data-motion="reduce"] {
+  scroll-behavior: auto;
+}
+html[data-motion="reduce"] *,
+html[data-motion="reduce"] *:before,
+html[data-motion="reduce"] *:after {
+  animation: none !important;
+  transition: none !important;
+}
+html[data-motion="reduce"] [data-reveal],
+html[data-motion="reduce"] .will-reveal,
+html[data-motion="reduce"] [data-parallax] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+html.replay-intro .hero .eyebrow,
+html.replay-intro .hero h1,
+html.replay-intro .hero-name,
+html.replay-intro .hero-deck,
+html.replay-intro .hero .actions,
+html.replay-intro .hero-scene,
+html.replay-intro .intro-portrait {
+  animation: none !important;
+}
+
+/* A compact personal introduction precedes the research story. */
+.intro-hero {
+  padding: 95px 0 90px;
+}
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 300px;
+  align-items: center;
+  gap: 70px;
+}
+.intro-copy {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+}
+.intro-portrait {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #7d615050;
+  background: #211a1d;
+}
+.intro-portrait img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.intro-copy h1 {
+  font-size: clamp(56px,6.3vw,91px);
+  margin: 22px 0 23px;
+}
+.intro-copy .hero-name {
+  padding: 0;
+  margin: 0 0 20px;
+  max-width: none;
+  line-height: 1.8;
+  font-size: 12px;
+}
+.intro-copy .hero-deck {
+  padding: 0;
+  margin: 0;
+  max-width: 580px;
+  font-size: 18px;
+}
+.intro-copy .actions,
+.intro-copy .motion-controls {
+  justify-content: flex-start;
+}
+.intro-copy .motion-controls {
+  padding: 0;
+}
+.research-scene {
+  width: 100%;
+  margin: 52px 0 0;
+}
+.weather .class-section {
+  padding: 30px 0 12px;
+}
+.academic-background {
+  display: block;
+}
+.academic-background .about-copy .section-title,
+.academic-background .about-copy .body-copy {
+  max-width: 750px;
+}
+@media (max-width:1000px) {
+  .intro-grid {
+    grid-template-columns: minmax(0,1fr) 250px;
+    gap: 40px;
+  }
+  .intro-portrait img {
+    height: 340px;
+  }
+  .intro-copy h1 {
+    font-size: 63px;
+  }
+  .intro-copy .hero-deck {
+    font-size: 16px;
+  }
+}
+@media (max-width:760px) {
+  .intro-hero {
+    padding: 46px 0 60px;
+  }
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .intro-portrait {
+    grid-column: 1;
+    grid-row: 1;
+    width: 180px;
+    justify-self: center;
+    border-radius: 20px;
+  }
+  .intro-portrait img {
+    height: 210px;
+  }
+  .intro-copy {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: center;
+  }
+  .intro-copy h1 {
+    font-size: clamp(45px,10vw,68px);
+    margin-block: 20px;
+  }
+  .intro-copy .eyebrow {
+    font-size: 9px;
+    line-height: 1.8;
+  }
+  .intro-copy .hero-name {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+  .intro-copy .hero-deck {
+    font-size: 15px;
+    max-width: 470px;
+    margin-inline: auto;
+  }
+  .intro-copy .actions,
+  .intro-copy .motion-controls {
+    justify-content: center;
+  }
+  .research-scene {
+    margin-top: 34px;
+  }
+  .weather .class-section {
+    padding-bottom: 0;
   }
 }

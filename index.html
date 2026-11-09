@@ -31,19 +31,40 @@
     </nav>
   </header>
   <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="wrap">
-        <div class="eyebrow">Undergraduate researcher &amp; software engineer</div>
-        <h1 id="hero-title">Seeing beyond<br><span>the conditions.</span></h1>
+    <section class="hero intro-hero" id="top" aria-labelledby="hero-title">
+      <div class="intro-grid wrap">
+        <figure class="intro-portrait"><img width="900" height="600" src="./images/portrait.webp" alt="Ranjan Khadka, holding an award" fetchpriority="high"></figure>
+        <div class="intro-copy">
+          <div class="eyebrow">Undergraduate researcher &amp; software engineer</div>
+          <h1 id="hero-title">Ranjan <span>Khadka.</span></h1>
+          <p class="hero-name">B.S. Software Engineering &middot; University of Minnesota Crookston</p>
+          <p class="hero-deck">I study computer vision in low light and adverse weather, and build software that connects research questions with practical systems.</p>
+          <div class="actions"><a class="text-link" href="#research">Explore my research <span class="down" aria-hidden="true">&#8595;</span></a><a class="text-link" href="./Ranjan_Khadka_Academic_CV.pdf" target="_blank" rel="noopener noreferrer">Read my CV <span class="arrow" aria-hidden="true">&#8599;</span></a></div>
+      <div class="motion-controls" aria-label="Website animation controls">
+        <button class="motion-button" id="motion-toggle" type="button" hidden><span data-motion-label>Play animations</span></button>
+        <button class="motion-button motion-replay" id="motion-replay" type="button" hidden>Replay intro <span aria-hidden="true">↻</span></button>
+        <span class="motion-status" id="motion-status" role="status"></span>
       </div>
-      <p class="hero-name">Ranjan Khadka <span aria-hidden="true">/</span> University of Minnesota Crookston</p>
-      <p class="hero-deck">I'm <strong>Ranjan Khadka.</strong> I study how machines see in difficult environments and build software for real-world questions.</p>
-      <div class="actions"><a class="text-link" href="#research">Explore the research <span class="down" aria-hidden="true">↓</span></a><a class="text-link" href="./Ranjan_Khadka_Academic_CV.pdf" target="_blank" rel="noopener noreferrer">Read my CV <span class="arrow" aria-hidden="true">↗</span></a></div>
-      <figure class="hero-scene wide">
-        <div class="image-surface" data-parallax><img width="1672" height="941" srcset="./images/low-light-six-classes-960.webp 960w, ./images/low-light-six-classes.webp 1672w" sizes="(max-width: 1440px) 96vw, 1392px" src="./images/low-light-six-classes.webp" alt="Generated illustration of a low-light street with labeled detection boxes for car, person, truck, bus, bicycle, and road signs. This is a research illustration, not an experimental output." fetchpriority="high"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter weather" id="research" aria-labelledby="weather-title">
+      <div class="wrap">
+        <div class="chapter-head">
+          <div data-reveal><div class="eyebrow"><span class="dash" aria-hidden="true"></span>01 / Research in progress</div><h2 class="section-title" id="weather-title">Seeing beyond<br><span class="muted">the conditions.</span></h2></div>
+          <div class="chapter-copy" data-reveal>
+            <div class="status">Ongoing · Fall 2026</div>
+            <p class="body-copy">A car in the shadows. A bicycle at the edge of the road. A sign softened by haze. <strong>Difficult conditions make familiar objects harder to recognize.</strong></p>
+            <p class="body-copy">My undergraduate research investigates object detection and classification in low light, haze, and snow, with environments relevant to Minnesota and North Dakota.</p>
+            <div class="condition-list" aria-label="Research conditions"><span>Low light</span><span>Haze</span><span>Snow</span></div>
+          </div>
+        </div>
+      <figure class="hero-scene research-scene" data-reveal="slow">
+        <div class="image-surface" data-parallax><img width="1672" height="941" srcset="./images/low-light-six-classes-960.webp 960w, ./images/low-light-six-classes.webp 1672w" sizes="(max-width: 1440px) 96vw, 1392px" src="./images/low-light-six-classes.webp" alt="Generated illustration of a low-light street with labeled detection boxes for car, person, truck, bus, bicycle, and road signs. This is a research illustration, not an experimental output." loading="lazy"></div>
         <figcaption class="figure-caption"><span class="scene-meta"><i aria-hidden="true"></i><strong>Generated research illustration</strong></span><span class="caption-right">Low-light scene · Not experimental output</span></figcaption>
       </figure>
-      <div class="class-section wrap" data-reveal>
+      <div class="class-section" data-reveal>
         <div class="class-topline"><div class="class-label">Six classes. One difficult scene.</div><p>The object categories in this research.</p></div>
         <ul class="class-legend" aria-label="Confirmed object classes">
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 10 2-5h12l2 5M3 10h18v8H3zM6 18v2m12-2v2M6 14h2m8 0h2M5 10h14"/></svg><span>Car</span></li>
@@ -55,19 +76,7 @@
         </ul>
         <p class="class-footnote">Illustrative labels communicate the research focus. They do not represent model predictions or measured performance.</p>
       </div>
-    </section>
 
-    <section class="chapter weather" id="research" aria-labelledby="weather-title">
-      <div class="wrap">
-        <div class="chapter-head">
-          <div data-reveal><div class="eyebrow"><span class="dash" aria-hidden="true"></span>01 / Research in progress</div><h2 class="section-title" id="weather-title">When visibility drops,<br><span class="muted">the questions<br>get bigger.</span></h2></div>
-          <div class="chapter-copy" data-reveal>
-            <div class="status">Ongoing · Fall 2026</div>
-            <p class="body-copy">A car in the shadows. A bicycle at the edge of the road. A sign softened by haze. <strong>Difficult conditions make familiar objects harder to recognize.</strong></p>
-            <p class="body-copy">My undergraduate research investigates object detection and classification in low light, haze, and snow, with environments relevant to Minnesota and North Dakota.</p>
-            <div class="condition-list" aria-label="Research conditions"><span>Low light</span><span>Haze</span><span>Snow</span></div>
-          </div>
-        </div>
         <div class="weather-details" data-reveal>
           <div><div class="detail-label">Research home</div><div class="detail-value">University of Minnesota Crookston<small>Undergraduate research</small></div></div>
           <div><div class="detail-label">Supervisors</div><div class="detail-value">M M Mahabubur Rahman<br>Md Nurul Amin</div></div>
@@ -134,9 +143,8 @@
 
     <section class="about" id="about" aria-labelledby="about-title">
       <div class="wrap">
-        <div class="about-grid">
-          <figure class="portrait" data-reveal><img width="900" height="600" src="./images/portrait.webp" alt="Portrait of Ranjan Khadka" loading="lazy"></figure>
-          <div class="about-copy" data-reveal><div class="eyebrow">Behind the work</div><h2 class="section-title" id="about-title">Curiosity,<br>with follow-through.</h2><p class="body-copy">I'm a software engineering student at the University of Minnesota Crookston, interested in computer vision and applied AI. I enjoy moving between careful research questions and the practical work of building useful software.</p></div>
+        <div class="about-grid academic-background">
+          <div class="about-copy" data-reveal><div class="eyebrow">Academic background</div><h2 class="section-title" id="about-title">Curiosity,<br>with follow-through.</h2><p class="body-copy">I'm a software engineering student at the University of Minnesota Crookston, interested in computer vision and applied AI. I enjoy moving between careful research questions and the practical work of building useful software.</p></div>
         </div>
         <div class="education" data-reveal>
           <div><div class="detail-label">Education</div><div class="detail-value">B.S. Software Engineering<div class="minor">Minors in Cybersecurity and Information Assurance<br>and Information Technology Management</div></div></div>
