@@ -1,223 +1,50 @@
-# Ranjan Khadka - Portfolio Website
+# Ranjan Khadka — Research Portfolio
 
-A modern, responsive portfolio website built with Vite showcasing my experience as a Software Engineering student at the University of Minnesota Crookston.
+A research-first portfolio for graduate schools and future employers. The cinematic dark design uses original research illustrations, large system typography, and restrained motion inspired by the supplied Apple reference.
 
-## 🚀 Live Demo
+## Run locally
 
-Visit the live website: https://ranjan-khadka.vercel.app/
-## 📋 Features
+Requires Node.js 22 or newer (the implementation was verified on Node 22.17.1).
 
-- **Responsive Design**: Optimized for all devices (mobile, tablet, desktop)
-- **Modern UI/UX**: Clean, professional design with smooth animations
-- **Interactive Elements**: Hover effects, scroll animations, and smooth navigation
-- **Resume Download**: Downloadable resume functionality
-- **Contact Information**: Easy ways to get in touch
-- **Project Showcase**: Detailed project descriptions and technologies used
-- **Skills Overview**: Comprehensive list of technical and soft skills
-
-## 🛠️ Technologies Used
-
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Build Tool**: Vite 5.0
-- **Framework**: Bootstrap 5.3.0
-- **Icons**: Font Awesome 6.4.0
-- **Hosting**: Vercel
-- **Version Control**: Git/GitHub
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── public/
-│   ├── favicon.svg         # Site favicon
-│   └── Me.jpg             # Profile photo (add your image here)
-├── src/
-│   ├── main.js            # JavaScript entry point
-│   └── style.css          # Custom CSS styles
-├── index.html             # Main HTML file
-├── vite.config.js         # Vite configuration
-├── package.json           # Dependencies and scripts
-├── .gitignore            # Git ignore rules
-└── README.md             # Project documentation
+```sh
+npm ci
+npm run dev
 ```
 
-## 🚀 Development & Deployment
+Open the local URL printed by Vite, normally http://localhost:3000. The development server binds to loopback and does not automatically open a browser.
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-- Git
-
-### Local Development
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/RanjanKhadka012/portfolio.git
-   cd portfolio
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**:
-   ```bash
-   npm run dev
-   ```
-   The site will be available at `http://localhost:3000`
-
-4. **Build for production**:
-   ```bash
-   npm run build
-   ```
-
-5. **Preview production build**:
-   ```bash
-   npm run preview
-   ```
-
-### Deployment on Vercel
-
-#### Method 1: Direct Vercel Deploy
-1. **Push to GitHub**: Ensure your code is in a GitHub repository
-
-2. **Connect to Vercel**:
-   - Go to [vercel.com](https://vercel.com)
-   - Sign in with GitHub
-   - Click "New Project"
-   - Import your portfolio repository
-
-3. **Configure Settings**:
-   - Framework Preset: **Vite**
-   - Root Directory: `./`
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-   - Install Command: `npm install`
-
-4. **Deploy**:
-   - Click "Deploy"
-   - Wait for deployment to complete
-   - Your site will be available at `https://your-project-name.vercel.app`
-
-#### Method 2: CLI Deploy
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-
-# For production
-vercel --prod
+```sh
+npm run build
+npm run preview
 ```
 
-### Environment Variables (if needed)
-Create a `.env.local` file for environment variables:
-```
-VITE_API_URL=your_api_url_here
-```
+The production build is written to `dist/`. The build preview normally uses http://localhost:4173. The Vite base is relative so assets work under a hosting subdirectory.
 
-## 🎨 Features Overview
+## Content
 
-### Hero Section
-- Professional introduction with contact information
-- Call-to-action buttons for resume download and contact
-- Direct link to LinkedIn profile
-- Profile photo (add your `Me.jpg` to `/public/` directory)
+- Adverse-weather and low-light object detection/classification: car, person, truck, bus, bicycle, and road signs. Ongoing undergraduate research.
+- Aerial parking prototype: YOLO11n, ByteTrack, stationary-state analysis, and polygon rules. The unpublished manuscript's reported 0.757 mAP@0.5 concerns **vehicle detection**, evaluated on 31 validation images after training on 123 images. Parking-alert validation is separately qualified.
+- UMC-Green, ARIA (design in progress), Alignt, and 11Bunkers.
+- Education, experience, teaching, honors, leadership, and community service grounded in the supplied Academic CV.
+- Email, GitHub, LinkedIn, and a downloadable copy of the supplied Academic CV.
 
-### About Section
-- Detailed objective and career goals
-- Education information
-- Leadership experience highlight
+## Source files
 
-### Experience Timeline
-- Current Software Engineering Intern position
-- IT Technician role at university
-- Leadership and management experience
-- Point-of-sale operations experience
+- `index.html`: semantic content, navigation, metadata, and local asset references.
+- `src/style.css`: visual system, responsive layouts, keyboard focus states, and reduced-motion styles.
+- `src/main.js`: progressive reveals, subtle scene movement, reading progress, and accessible mobile navigation.
+- `public/images/`: optimized WebP illustrations, photographs, and project screenshots.
+- `public/Ranjan_Khadka_Academic_CV.pdf`: supplied academic CV, unchanged.
+- `docs/research-image-provenance.md`: image sources, attribution, dimensions, and prompt reference.
 
-### Projects Showcase
-- **Sustainability Online Marketplace**: Full-stack campus sustainability platform
-- **Task Manager Web App**: CRUD-based task management system
-- Technology stack badges for each project
+Generated visuals are labeled as research illustrations; they are not experimental frames, model predictions, or evidence of measured performance. The real team photo is credited to the [official Southwest MN Hacks Fall 2026 recap](https://www.southwestmnhacks.org/events/fall-2026).
 
-### Skills Section
-- **Technical Skills**: Programming languages, web development, databases, tools
-- **Soft Skills**: Problem-solving, leadership, teamwork, communication
+## Accessibility and motion
 
-### Contact Section
-- Multiple contact methods (email, phone, LinkedIn)
-- Professional contact form (enhanced with JavaScript)
+The page uses semantic landmarks, a skip link, visible keyboard focus, descriptive image text, native expandable research notes, and a mobile menu with Escape handling. Content and navigation remain available without JavaScript. Reduced-motion preference disables reveals and parallax; normal scrolling is never intercepted.
 
-## 📱 Responsive Design
+## Verification and publication
 
-The website is fully responsive and optimized for:
-- **Mobile devices** (320px and up)
-- **Tablets** (768px and up)  
-- **Desktop** (1024px and up)
-- **Large screens** (1200px and up)
+Verify changes with `npm run build`, `node --check src/main.js`, `npm audit`, and local page/asset checks. This repository has no automated test suite. During this build, browser automation was unavailable because Windows browser URL-policy enforcement was unsupported; source, production-build, image-decoding, and HTTP checks do not substitute for a final visual check on the user's device.
 
-## ✨ Interactive Features
-
-- **Smooth scrolling** navigation
-- **Active section highlighting** in navigation
-- **Scroll animations** for cards and timeline items
-- **Hover effects** on buttons and cards
-- **Resume download** functionality
-- **Back to top** button
-- **Loading animations** for better UX
-- **Mobile-friendly** navigation menu
-
-## 🎯 Performance Optimizations
-
-- **Vite build optimization** for fast loading
-- **Debounced scroll events** for better performance
-- **Lazy loading animations** using Intersection Observer
-- **Optimized images** with proper sizing
-- **Tree shaking** and code splitting with Vite
-- **CSS custom properties** for maintainable theming
-
-## 🔧 Customization
-
-### Adding Your Photo
-1. Add your photo as `Me.jpg` in the `/public/` directory
-2. The image will automatically be displayed in the hero section
-
-### Updating Content
-- Edit personal information in `index.html`
-- Modify styles in `src/style.css`
-- Add functionality in `src/main.js`
-
-### Adding New Sections
-1. Add HTML structure in `index.html`
-2. Style in `src/style.css`
-3. Add interactions in `src/main.js`
-
-## 🛠️ Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-
-## 📞 Contact Information
-
-- **Email**: Khadk046@crk.umn.edu
-- **Phone**: (218) 275-0287
-- **Location**: Crookston, MN
-- **LinkedIn**: [linkedin.com/in/ranjan-khadka-181b461a5/](https://www.linkedin.com/in/ranjan-khadka-181b461a5/)
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-While this is a personal portfolio, feedback and suggestions are welcome! Feel free to:
-- Open an issue for bugs or suggestions
-- Submit a pull request for improvements
-- Contact me directly for questions
-
----
-
-**Built with ❤️ by Ranjan Khadka using Vite**
+The approved workflow is local review before GitHub publication. No deployment or push is triggered by the development commands above.
